@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val changeButton = findViewById<Button>(R.id.changeButton)
         val displayTextView = findViewById<TextView>(R.id.textDisplay)
 
-        var size = "12"
+        var size = 12f
 
         // Step 1: Populate array
         val numberArray = IntArray(100)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 id: Long
             ) {
                 parent?.run{
-                    size = getItemAtPosition(position).toString()
+                    size = getItemAtPosition(position).toString().toFloat()
                 }
             }
 
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         // Step 3: Change TextView to saved text size
         changeButton.setOnClickListener {
-           displayTextView.textSize = size.toFloat()
+           displayTextView.textSize = size
         }
 
     }
